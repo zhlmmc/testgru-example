@@ -17,9 +17,6 @@ pipeline:
 settings:
   # IF you allow TestGru to add export to your source code classes or functions when it needs to test your source code
   exportFunctionOrClass: allow
-  # Location of the source code project
-  include:
-      - src
   # Location of the test files
   testPlacementStrategies:
     - type: co-located
