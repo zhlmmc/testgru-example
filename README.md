@@ -11,17 +11,22 @@ Currently, Test Gru only supports Node.js/TypeStript. We are gradually adding su
 
 # Creat Test Gru Account
 Log in at [Gru.ai](https://gru.ai). Test Gru currently only supports use with GitHub accounts. You need a GitHub account to log in to gru.ai.
+
 ![image](https://babelcloud-blog-assets.s3.us-west-2.amazonaws.com/d7aa903c-467a-4308-9b02-d99265c305f3.png)
+
 ![image](https://babelcloud-blog-assets.s3.us-west-2.amazonaws.com/691fd5c4-7b9c-47ab-b6eb-08870e5fe6a0.png)
 
 # Enter Test Gru
 Click the top left corner to select [Test Gru](https://gru.ai/:test).
+
 ![iamge](https://babel-activate2-blog-assets.s3.us-west-2.amazonaws.com/5f34b7b2-34a1-4470-81e9-7cf07ad49b01.png)
 
 
 # Install Github Application
 Follow the steps to install Test Gru.
+
 ![image](https://babelcloud-blog-assets.s3.us-west-2.amazonaws.com/0cebf5aa-059a-44b3-a84b-4cf17f05589e.png)
+
 ![iamge](https://babelcloud-blog-assets.s3.us-west-2.amazonaws.com/b73759b6-da11-4cc9-8104-9a8bcfacf6f0.png)
 
 Then select a repo, perform the configuration.
@@ -40,7 +45,7 @@ Then select a repo, perform the configuration.
 # grutest.yaml 
 Configuration file example
 
-{% highlight typescript %}
+```
 version: "0.1"
 global:
   setup:
@@ -67,7 +72,7 @@ settings:
   testPlacementStrategies:
     - type: co-located
       testFilePattern: "{{sourceFileName}}.spec.ts"
-{% endhighlight %}      
+```    
 
 # explanation
 
@@ -132,7 +137,7 @@ then you can configure `testPlacementStrategies` like this
 
 # Trigger TestGru to work
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/42B-JwLEohM?si=MscJIeuAPplxurbR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 ## Auto Rrigger by Pull Request
 When you complete the configuration, Test Gru will automatically take over your repository. Whenever you submit a PR, Test Gru will automatically detect software that requires unit tests and add tests for it.
