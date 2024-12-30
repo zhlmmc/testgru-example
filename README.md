@@ -12,31 +12,31 @@ Currently, Test Gru only supports Node.js/TypeStript. We are gradually adding su
 # Creat Test Gru Account
 Log in at [Gru.ai](https://gru.ai). Test Gru currently only supports use with GitHub accounts. You need a GitHub account to log in to gru.ai.
 
-![image](https://github.com/user-attachments/assets/ce9847a8-d52a-4198-88cd-2618eb608b7d)
+![image](https://github.com/user-attachments/assets/79d337d2-21e4-4067-b1fd-a0eb48709976)
 
-![image](https://github.com/user-attachments/assets/97a4d984-6c66-48d0-a02a-00a647500321)
+![image](https://github.com/user-attachments/assets/47d87154-5fa6-4de0-b56a-f7ee1f56e651)
 # Enter Test Gru
 Click the top left corner to select [Test Gru](https://gru.ai/:test).
 
-![image](https://github.com/user-attachments/assets/a5e9a05e-7c62-4b67-8e90-ba98a25db973)
+![image](https://github.com/user-attachments/assets/b86cc641-de39-4993-a302-60daad6ccca3)
 
 # Install Github Application
 Follow the steps to install Test Gru.
 
-![image](https://github.com/user-attachments/assets/27680039-8bc2-40e3-b7d1-8487159aa164)
-![image](https://github.com/user-attachments/assets/72307cd9-a0ce-47c6-a70b-96e6a7eb2c42)
+![image](https://github.com/user-attachments/assets/f1137208-b617-400d-92cb-1c5406d561f1)
+![image](https://github.com/user-attachments/assets/4842701d-a3b6-4193-89cf-201d0ed6b1d4)
 Then select a repo, perform the configuration.
-![image](https://github.com/user-attachments/assets/41b0c77f-9bd3-4f46-b996-4a8a4ecba8ef)
-![image](https://github.com/user-attachments/assets/aef27689-1984-4d0d-80ea-4365453f9201)
+![image](https://github.com/user-attachments/assets/9849d812-57d3-48f3-86de-ee2427d88e49)
+![image](https://github.com/user-attachments/assets/3a9688d8-f513-4612-8546-28101669387d)
 
 # Use Example For Quick Start
 1. Fork [this repo](https://github.com/gru-agent/testgru-example) 
 2. Install App and get configuration from code repo
-![image](https://github.com/user-attachments/assets/7f639782-a571-451e-880f-bd18a074f8ad)
+![image](https://github.com/user-attachments/assets/ab49cc2f-c146-42f9-a056-60519aac2fbc)
 3. dispatch src/user.ts
-![image](https://github.com/user-attachments/assets/89760ff7-2689-4e43-911c-61f809e0bbbe)
+![image](https://github.com/user-attachments/assets/8daf5a66-b4db-4d3c-b613-2f1f823e0397)
 4. Test Gru submits a PR
-![image](https://github.com/user-attachments/assets/1e0d82fb-6a4c-451b-8c12-7e799e4dd1c5)
+![image](https://github.com/user-attachments/assets/bed72345-3730-4b44-985c-466111edde3b)
 
 # grutest.yaml 
 Configuration file example
@@ -136,17 +136,17 @@ then you can configure `testPlacementStrategies` like this
 ## Auto Rrigger by Pull Request
 When you complete the configuration, Test Gru will automatically take over your repository. Whenever you submit a PR, Test Gru will automatically detect software that requires unit tests and add tests for it.
 
-![image](https://github.com/user-attachments/assets/8e530ba1-38e9-4c1e-8a63-8a3df8ef181f)
+![image](https://github.com/user-attachments/assets/ed3bbd18-455f-40bc-99fd-ca3485665651)
 
 After Gru completes writing the test code, it will run the tests. Once it confirms there are no issues with the test code, it will submit a PR with the unit test code to the current PR.
 
-![image](https://github.com/user-attachments/assets/049e9746-6c74-4656-958a-bf7d9e17bca7)
+![image](https://github.com/user-attachments/assets/e7af14a3-c9b2-4fba-9bc6-2feb5eacecc6)
 
 ## Manual Trigger
 You can manually trigger Test Gru on the [Gru.ai](gru.ai/:test).
-![image](https://github.com/user-attachments/assets/60b52af9-e417-49bc-a819-b29dc7d18be7)
+![image](https://github.com/user-attachments/assets/87fa45b1-2d4b-4871-9dd7-0c257f794341)
 
 It can be triggered by PR or existing code files.
-![image](https://github.com/user-attachments/assets/d964d32a-1162-48e3-bb15-c8f282f1a985)
+![image](https://github.com/user-attachments/assets/10e5d5d9-b73b-4fba-a2e4-6e11e045a4ff)
 
-![image](https://github.com/user-attachments/assets/66718243-d7c2-4e33-9b96-2a90d650ab20)
+![image](https://github.com/user-attachments/assets/d327e627-d341-4ccf-af59-e47bf5195a98)
