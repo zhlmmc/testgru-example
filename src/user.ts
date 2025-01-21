@@ -46,3 +46,6 @@ class UserManager {
     return this.users;
   }
 }
+
+
+export { UserManager };
