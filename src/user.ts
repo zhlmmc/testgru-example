@@ -26,6 +26,11 @@ class UserManager {
     return this.users.find((user) => user.id === id);
   }
 
+  // Find a user by email
+  findUserByEmail(email: string): User | undefined {
+    return this.users.find((user) => user.email === email);
+  }
+
   // Delete a user
   deleteUser(id: number): boolean {
     const index = this.users.findIndex((user) => user.id === id);
@@ -41,3 +46,6 @@ class UserManager {
     return this.users;
   }
 }
+
+
+export { UserManager };

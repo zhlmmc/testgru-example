@@ -150,3 +150,5 @@ It can be triggered by PR or existing code files.
 ![image](https://github.com/user-attachments/assets/10e5d5d9-b73b-4fba-a2e4-6e11e045a4ff)
 
 ![image](https://github.com/user-attachments/assets/d327e627-d341-4ccf-af59-e47bf5195a98)
+
+## Trigger by Github Action
