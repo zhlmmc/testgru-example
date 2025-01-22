@@ -56,6 +56,29 @@ describe('UserManager', () => {
     });
   });
 
+  describe('findUserByName', () => {
+    it('should find existing user by name', () => {
+      const user = userManager.addUser('John', 'john@example.com');
+      const foundUser = userManager.findUserByName('John');
+
+      expect(foundUser).toEqual(user);
+    });
+
+    it('should return undefined for non-existent name', () => {
+      const foundUser = userManager.findUserByName('NotFound');
+      expect(foundUser).toBeUndefined();
+    });
+
+    it('should find first user when multiple users have same name', () => {
+      const user1 = userManager.addUser('John', 'john1@example.com');
+      const user2 = userManager.addUser('John', 'john2@example.com');
+
+      const foundUser = userManager.findUserByName('John');
+
+      expect(foundUser).toEqual(user1);
+    });
+  });
+
   describe('deleteUser', () => {
     it('should delete existing user', () => {
       const user = userManager.addUser('John', 'john@example.com');
