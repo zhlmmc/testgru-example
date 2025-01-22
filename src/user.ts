@@ -31,6 +31,11 @@ class UserManager {
     return this.users.find((user) => user.email === email);
   }
 
+  // Find a user by name
+  findUserByName(name: string): User | undefined {
+    return this.users.find((user) => user.name === name);
+  }
+
   // Delete a user
   deleteUser(id: number): boolean {
     const index = this.users.findIndex((user) => user.id === id);
