@@ -21,6 +21,16 @@ class UserManager {
     return newUser;
   }
 
+  // Edit a user
+  editUser(id: number, name: string, email: string): User | undefined {
+    const user = this.users.find((user) => user.id === id);
+    if (user) {
+      user.name = name;
+      user.email = email;
+    }
+    return user;
+  }
+
   // Find a user by ID
   findUserById(id: number): User | undefined {
     return this.users.find((user) => user.id === id);
