@@ -46,6 +46,10 @@ class UserManager {
     return false;
   }
 
+  deleteAllUsers(): void {
+    this.users = [];
+  }
+
   // Get all users
   getAllUsers(): User[] {
     return this.users;
