@@ -60,6 +60,8 @@ class UserManager {
     this.users = [];
   }
 
+  //random testing comments
+
   // Get all users
   getAllUsers(): User[] {
     return this.users;
