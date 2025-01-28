@@ -45,7 +45,7 @@ class UserManager {
   findUsersByName(name: string): User[] {
     return this.users.filter((user) => user.name === name);
   }
-
+  
   // Delete a user
   deleteUser(id: number): boolean {
     const index = this.users.findIndex((user) => user.id === id);
@@ -59,8 +59,6 @@ class UserManager {
   deleteAllUsers(): void {
     this.users = [];
   }
-
-  //random testing comments
 
   // Get all users
   getAllUsers(): User[] {
