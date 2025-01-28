@@ -56,6 +56,8 @@ class UserManager {
     return false;
   }
 
+  // add some comments
+
   deleteAllUsers(): void {
     this.users = [];
   }
