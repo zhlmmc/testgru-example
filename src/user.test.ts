@@ -82,6 +82,36 @@ describe('UserManager', () => {
     });
   });
 
+  describe('deleteUserByName', () => {
+    it('should delete existing user by name', () => {
+      const user = userManager.addUser('John', 'john@example.com');
+      const result = userManager.deleteUserByName('John');
+
+      expect(result).toBe(true);
+      expect(userManager.findUserById(user.id)).toBeUndefined();
+      expect(userManager.getAllUsers()).toHaveLength(0);
+    });
+
+    it('should return false when deleting non-existent user by name', () => {
+      const result = userManager.deleteUserByName('NonExistentUser');
+      expect(result).toBe(false);
+    });
+
+    it('should delete first user when multiple users have same name', () => {
+      const user1 = userManager.addUser('John', 'john1@example.com');
+      const user2 = userManager.addUser('John', 'john2@example.com');
+      const user3 = userManager.addUser('Jane', 'jane@example.com');
+
+      const result = userManager.deleteUserByName('John');
+
+      expect(result).toBe(true);
+      expect(userManager.findUserById(user1.id)).toBeUndefined();
+      expect(userManager.findUserById(user2.id)).toBeDefined();
+      expect(userManager.findUserById(user3.id)).toBeDefined();
+      expect(userManager.getAllUsers()).toHaveLength(2);
+    });
+  });
+
   describe('getAllUsers', () => {
     it('should return empty array when no users exist', () => {
       expect(userManager.getAllUsers()).toEqual([]);
