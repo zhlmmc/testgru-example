@@ -56,7 +56,16 @@ class UserManager {
     return false;
   }
 
-  // add some comments
+  // delete user by name
+  deleteUserByName(name: string): boolean {
+    const index = this.users.findIndex((user) => user.name === name);
+    if (index !== -1) {
+      this.users.splice(index, 1);
+      return true;
+    }
+    return false;
+  }
+
 
   deleteAllUsers(): void {
     this.users = [];
