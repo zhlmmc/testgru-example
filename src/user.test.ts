@@ -94,4 +94,106 @@ describe('UserManager', () => {
       expect(userManager.getAllUsers()).toEqual([user1, user2]);
     });
   });
+
+  describe('editUser', () => {
+    it('should successfully edit existing user', () => {
+      const user = userManager.addUser('John', 'john@example.com');
+      const editedUser = userManager.editUser(user.id, 'John Updated', 'john.updated@example.com');
+
+      expect(editedUser).toBeDefined();
+      expect(editedUser?.name).toBe('John Updated');
+      expect(editedUser?.email).toBe('john.updated@example.com');
+    });
+
+    it('should return undefined when editing non-existent user', () => {
+      const result = userManager.editUser(999, 'John', 'john@example.com');
+      expect(result).toBeUndefined();
+    });
+
+    it('should not affect other users when editing', () => {
+      const user1 = userManager.addUser('John', 'john@example.com');
+      const user2 = userManager.addUser('Jane', 'jane@example.com');
+
+      userManager.editUser(user1.id, 'John Updated', 'john.updated@example.com');
+
+      const unchangedUser = userManager.findUserById(user2.id);
+      expect(unchangedUser).toEqual(user2);
+    });
+  });
+
+  describe('findUsersByName', () => {
+    it('should find multiple users with same name', () => {
+      const user1 = userManager.addUser('John', 'john1@example.com');
+      const user2 = userManager.addUser('John', 'john2@example.com');
+      const user3 = userManager.addUser('Jane', 'jane@example.com');
+
+      const foundUsers = userManager.findUsersByName('John');
+      expect(foundUsers).toHaveLength(2);
+      expect(foundUsers).toContainEqual(user1);
+      expect(foundUsers).toContainEqual(user2);
+    });
+
+    it('should return empty array when no users match name', () => {
+      userManager.addUser('John', 'john@example.com');
+      const foundUsers = userManager.findUsersByName('NonExistent');
+      expect(foundUsers).toEqual([]);
+    });
+
+    it('should be case sensitive', () => {
+      userManager.addUser('John', 'john@example.com');
+      const foundUsers = userManager.findUsersByName('john');
+      expect(foundUsers).toEqual([]);
+    });
+  });
+
+  describe('deleteUserByName', () => {
+    it('should successfully delete user by name', () => {
+      const user = userManager.addUser('John', 'john@example.com');
+      const result = userManager.deleteUserByName('John');
+
+      expect(result).toBe(true);
+      expect(userManager.findUserById(user.id)).toBeUndefined();
+    });
+
+    it('should return false when deleting non-existent name', () => {
+      const result = userManager.deleteUserByName('NonExistent');
+      expect(result).toBe(false);
+    });
+
+    it('should delete first occurrence when multiple users have same name', () => {
+      const user1 = userManager.addUser('John', 'john1@example.com');
+      const user2 = userManager.addUser('John', 'john2@example.com');
+
+      const result = userManager.deleteUserByName('John');
+
+      expect(result).toBe(true);
+      expect(userManager.getAllUsers()).toHaveLength(1);
+      expect(userManager.findUserById(user1.id)).toBeUndefined();
+      expect(userManager.findUserById(user2.id)).toBeDefined();
+    });
+  });
+
+  describe('deleteAllUsers', () => {
+    it('should clear all users', () => {
+      userManager.addUser('John', 'john@example.com');
+      userManager.addUser('Jane', 'jane@example.com');
+
+      userManager.deleteAllUsers();
+      expect(userManager.getAllUsers()).toEqual([]);
+    });
+
+    it('should work on empty user list', () => {
+      userManager.deleteAllUsers();
+      expect(userManager.getAllUsers()).toEqual([]);
+    });
+
+    it('should allow adding users after clearing', () => {
+      userManager.addUser('John', 'john@example.com');
+      userManager.deleteAllUsers();
+
+      const newUser = userManager.addUser('Jane', 'jane@example.com');
+      expect(userManager.getAllUsers()).toHaveLength(1);
+      expect(userManager.getAllUsers()[0]).toEqual(newUser);
+    });
+  });
 });
